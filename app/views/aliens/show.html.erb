@@ -1,0 +1,6 @@
+<h1> Species: <%= @alien.species %> </h1>
+<h2> Threat Level: <%= @alien.threat_level %> </h2>
+<h3> Origin: <%= @alien.origin %> </h3>
+<h3>   Psychic?: <%= @alien.psychic %> </h3>
+
+<%= button_to "Edit #{@alien.species}", edit_alien_path(@alien), method: :get %>

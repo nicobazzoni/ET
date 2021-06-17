@@ -1,0 +1,11 @@
+<%= form_for @alien do |f| %>
+    <%=f.label :species %>
+    <%=f.text_field :species %>
+    <%=f.label :threat_level %>
+    <%=f.number_field :threat_level %>
+    <%=f.label :origin %>
+    <%=f.text_field :origin %>
+    <%=f.label :psychic %>
+    <%=f.check_box :psychic, {}, true, false %>
+    <%= f.submit "Submit", class: "button small radius" %>
+    <% end %>

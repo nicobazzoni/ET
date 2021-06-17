@@ -1,0 +1,7 @@
+<h1> Aliens </h1>
+
+<ul>
+<% @aliens.each do |alien| %>
+<li> <%= link_to alien.species, alien %> </li>
+<% end %>
+</ul>
