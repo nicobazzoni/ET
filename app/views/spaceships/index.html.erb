@@ -1,0 +1,10 @@
+<h1> Spaceships </h1>
+
+<ul class="no-bullets">
+<% @spaceships.each do |spaceship| %>
+<li> <%= link_to spaceship.name, spaceship %> </li>
+<% end %>
+</ul>
+
+
+<%= button_to " Add a New Spaceship ", new_spaceship_path, method: :get %>

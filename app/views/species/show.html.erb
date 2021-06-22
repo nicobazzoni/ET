@@ -1,0 +1,20 @@
+
+
+
+
+
+<%= @species.name %><br>
+<h5> Power Level </h5>
+<%= @species.power_level %>
+<br>
+
+<h5> Planets Claimed </h5>
+<% @species.alien_planets.each do |alien_planets| %> <br>
+  <% @species_planet = @species.planets.find(alien_planets.planet_id) %> <br>
+  <%= link_to @species_planet.name, planet_path(@species_planet) %> <br>
+  <%= link_to alien_planets.name, alien_planet_path(alien_planets) %> <br>
+<% end %>
+
+
+    
+   

@@ -1,6 +1,11 @@
-<h1> Species: <%= @alien.species %> </h1>
+<h1> Name: <%= @alien.name %> </h1>
+<h2> Species: <%= @alien.species_name %> </h2>
 <h2> Threat Level: <%= @alien.threat_level %> </h2>
 <h3> Origin: <%= @alien.origin %> </h3>
-<h3>   Psychic?: <%= @alien.psychic %> </h3>
+<h3> Psychic? <%= @alien.psychic ? "Yes! I Read Minds" : "Nope, not interested in your thoughts" %> </h3>
+<h3> Spaceship: <%= @alien.spaceship_name %> </h3>
 
-<%= button_to "Edit #{@alien.species}", edit_alien_path(@alien), method: :get %>
+
+<%= button_to "Edit #{@alien.name}", edit_alien_path(@alien), method: :get %>
+<%= button_to "Delete #{@alien.name}", @alien, method: :delete %>
+

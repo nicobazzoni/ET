@@ -1,0 +1,8 @@
+<h1> Name: <%= @spaceship.name %> </h1>
+<h3> speed: <%= @spaceship.speed %> miles per hour. </h3>
+
+
+
+
+<%= button_to "Edit #{@spaceship.name}", edit_spaceship_path(@spaceship), method: :get %>
+<%= button_to "Delete #{@spaceship.name}", @spaceship, method: :delete %>

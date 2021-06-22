@@ -1,0 +1,7 @@
+<h1> Conquered Planets </h1>
+
+<ul class="no-bullets">
+<% @alien_planets.each do |alien_planet| %>
+<li> <%= link_to alien_planet.name, alien_planet %> </li>
+<% end %>
+</ul>

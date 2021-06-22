@@ -1,11 +1,24 @@
+
+
+<h1> Create an Alien </h1>
 <%= form_for @alien do |f| %>
-    <%=f.label :species %>
-    <%=f.text_field :species %>
-    <%=f.label :threat_level %>
-    <%=f.number_field :threat_level %>
-    <%=f.label :origin %>
-    <%=f.text_field :origin %>
-    <%=f.label :psychic %>
-    <%=f.check_box :psychic, {}, true, false %>
-    <%= f.submit "Submit", class: "button small radius" %>
+    <% if @alien.errors.any? %>
+    <p><%= "#{pluralize(@alien.errors.count, "error")} prevented this Alien from being saved:" %></p>
+    <ul><% @alien.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+    <% end %>
+    <%=f.label :name %><br>
+    <%=f.text_field :name %><br>
+    <%=f.label :threat_level %><br>
+    <%=f.number_field :threat_level %><br>
+    <%=f.label :origin %><br>
+    <%=f.text_field :origin %><br>
+    <%=f.label :psychic %><br>
+    <%=f.check_box :psychic %><br>
+    <%=f.label :species %><br>
+    <%=f.collection_select :species_id, Species.all, :id, :name, prompt: true %><br>
+    <%=f.label :spaceship %><br>
+    <%=f.collection_select :spaceship_id, Spaceship.all, :id, :name, prompt: true %>
+    <%=f.submit "Submit", class: "button small radius" %><br>
     <% end %>

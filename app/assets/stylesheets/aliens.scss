@@ -1,3 +1,22 @@
 // Place all the styles related to the Aliens controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+input {
+    margin-bottom: 1em;
+
+}
+
+
+body {
+    text-align: center;
+}
+
+
+.no-bullets {
+    list-style-type: none;
+}
+
+
+.center_text {
+    text-align: center;
+}
