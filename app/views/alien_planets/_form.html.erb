@@ -1,9 +1,9 @@
 
 
 
-<h1> Claim a Planet </h1>
-<%= form_for(@alien_planet) do |f| %>
-    <%=f.label :name%> <br>
+<h1> Claim a Planet </h1><br>
+<%= form_for(@alien_planet) do |f| %><br>
+    <h3> Name of Campaign </h3> 
     <%= f.text_field :name %><br>
     <%=f.label :species %><br>
     <%=f.collection_select :species, Species.all, :id, :name, prompt: true %><br>

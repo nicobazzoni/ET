@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_214231) do
+ActiveRecord::Schema.define(version: 2021_06_23_005147) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 2021_06_21_214231) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "species_id"
+    t.index ["species_id"], name: "index_planets_on_species_id"
   end
 
   create_table "spaceships", force: :cascade do |t|
@@ -96,6 +98,7 @@ ActiveRecord::Schema.define(version: 2021_06_21_214231) do
   add_foreign_key "alien_planets", "species"
   add_foreign_key "aliens", "spaceships"
   add_foreign_key "aliens", "species"
+  add_foreign_key "planets", "species"
   add_foreign_key "spaceships", "aliens"
   add_foreign_key "species", "planets"
 end

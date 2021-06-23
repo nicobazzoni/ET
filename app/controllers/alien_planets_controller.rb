@@ -23,7 +23,7 @@ class AlienPlanetsController < ApplicationController
     def create
        
          
-        alien_planet = AlienPlanet.new(alien_planet_params)
+        @alien_planet = @species.alien_planets.build(alien_planet_params)
         if alien_planet.save
           redirect_to @alien_planet
         else
@@ -33,7 +33,7 @@ class AlienPlanetsController < ApplicationController
     end
 
     def show
-        @alien_planet = @alien_planet.species.find_or_create_by(params[:id])
+        @alien_planet = @alien_planet.species_name.find_by(params[:id])
     end
 
     def edit
@@ -61,7 +61,7 @@ class AlienPlanetsController < ApplicationController
     end
 
     def alien_planet_params
-        params.require(:alien_planet).permit(:name, :species_id, :planet_id)
+        params.require(:alien_planet).permit(:name, :species_id, :planet_id, planets_attributes:[:name])
 
     end
 end

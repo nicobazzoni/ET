@@ -3,7 +3,7 @@ class AlienPlanet < ApplicationRecord
     belongs_to :planet, optional: true
    
      validates_presence_of :species
-    
+     validates_presence_of :planet
   
     accepts_nested_attributes_for :planet
     accepts_nested_attributes_for :species

@@ -2,7 +2,17 @@
 <h3> speed: <%= @spaceship.speed %> miles per hour. </h3>
 
 
+<% if @spaceship.name.include?('TR-3B') %>
+<%= image_tag("logos/tr3b.jpg") %>
+<% end %>
 
+<% if @spaceship.name.include?('Flying Disc') %>
+<%= image_tag("logos/ufo.jpg") %>
+<% end %>
+
+<% if @spaceship.name.include?('Mothership') %>
+<%= image_tag("logos/mother.jpg") %>
+<% end %>
 
 <%= button_to "Edit #{@spaceship.name}", edit_spaceship_path(@spaceship), method: :get %>
 <%= button_to "Delete #{@spaceship.name}", @spaceship, method: :delete %>
