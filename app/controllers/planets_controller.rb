@@ -23,7 +23,7 @@ class PlanetsController < ApplicationController
 
     def show
      
-        
+        @planet = Planet.find_by(params[:id])
     end
 
     def edit
@@ -51,6 +51,6 @@ class PlanetsController < ApplicationController
         end
 
       def planet_params
-        params.require(:planet).permit(:name)
+        params.require(:planet).permit(:name, :moons)
       end
 end

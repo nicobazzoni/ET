@@ -3,10 +3,19 @@
 
 
 
-<%= @species.name %><br>
+<h1> <%= @species.name %><br> </h1>
 
 <% if @species.name.include?('Tall Grey') %>
 <%= image_tag("logos/download.jpg") %>
+<% end %>
+<% if @species.name.include?('Reptilian') %>
+<%= image_tag("logos/images.jpg") %>
+<% end %>
+<% if @species.name.include?('Xenomorph') %>
+<%= image_tag("logos/xenomorph.jpg") %>
+<% end %>
+<% if @species.name.include?('Insectoid') %>
+<%= image_tag("logos/insect.jpg") %>
 <% end %>
 
 <h5> Power Level </h5>
@@ -34,6 +43,7 @@
 
 
 
-
+<%= button_to "Edit #{@species.name}", edit_species_path(@species), method: :get %>
+<%= button_to "Delete #{@species.name}", @species, method: :delete %>
     
    

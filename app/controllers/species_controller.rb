@@ -23,6 +23,10 @@ class SpeciesController < ApplicationController
         
       end
       
+      def destroy
+        @species.destroy
+        redirect_to species_path
+       end
       
       private
       def set_species

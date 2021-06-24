@@ -1,10 +1,17 @@
-<%= link_to @planet.name, @planet %><br>
-<%= hidden_field_tag :planet, @planet.id%>
 
-<%= link_to new_planet_alien_planet_path, @planet %><br>
+<br>
+<h1> <%= link_to @planet.name, @planet %> </h1><br></br>
 
-<%= button_to "Edit #{@planet.name}", edit_alien_path(@planet), method: :get %>
-<%= button_to "Delete #{@planet.name}", @planet, method: :delete %>
+<%= link_to "Claim This Planet ", new_planet_alien_planet_path(@planet) %>
+ 
+
+<h5> Number of Moons </h5>
+<%= @planet.moons %><br>
+<br>
+
+
+<%= button_to "Edit #{@planet.name}", edit_planet_path(@planet), method: :get %>
+<%= button_to "Delete #{@planet.name}", @planet, method: :delete %><br></br>
 
  
 <h5> Species Inhabiting <%= @planet.name %> </h5>

@@ -8,9 +8,11 @@
     <ul><% @planet.errors.each do |error| %>
       <li><%= error.full_message %></li>
     <% end %>
-    <% end %>
-    <%=f.label :name %><br>
+    <% end %> <br>
+    <h2> Name of Planet </h2><br>
     <%=f.text_field :name %><br>
+     <h2> Moons </h2><br>
+    <%=f.number_field:moons , step: :any %>  <br>
     <%= f.submit %>
     <% end %>
     <%= link_to 'Back', planets_path %>

@@ -3,8 +3,11 @@
 <ul class="no-bullets">
 <% @planets.each do |planet| %>
    <h1> <li> <%= link_to planet.name, planet %> </li> </h1>
+   <% end %>
+    </ul>
+
+    <h1> Create New Planet </h1>
+<%= link_to " 🌍 ", new_planet_path %><br>
 
     
-    
-    <% end %>
-    </ul>
+
