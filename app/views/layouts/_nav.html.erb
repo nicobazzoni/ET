@@ -1,8 +1,30 @@
-<nav> 
 
-   <%= link_to " 👽 ", aliens_path %><br>
-   <%= link_to " 🛸 ", spaceships_path %><br>
-   <%= link_to " 🧬 ", species_index_path %> <br>
-   <%= link_to " 🌍 ", planets_path %> 
+
+<nav class="navbar navbar-dark bg-dark">
+
+<div class="container-fluid">
+   
+   <%= link_to " 👽 ALIENS", aliens_path %><br>
+   <%= link_to " 🛸 SPACESHIPS ", spaceships_path %><br>
+   <%= link_to " 🧬  SPECIES", species_index_path %> <br>
+   <%= link_to " 🌍  PLANETS", planets_path %> <br>
+   <%= link_to " 🛰 NASA API", nasa_api_index_path %> <br>
+   </div>
+  
+   </nav>
+ 
+   
+    <% if logged_in? %> 
+    <%= link_to " 🧑🏼‍🚀 ", user_path(@current_user.id) %> 
+      <ul class="nav navbar-right ">
+        <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete %></li> 
+      </ul>
+    <% else %>
+      <ul class="nav navbar-right ">
+        <li><%= link_to "Log in", login_path, class: "mx-2" %></li> 
+        <li><%= link_to "Sign up", signup_path, class: "mx-2" %></li>
+      </ul>
+    <% end %>
+  </div>
    
 </nav>

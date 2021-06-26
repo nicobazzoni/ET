@@ -1,18 +1,20 @@
 class AliensController < ApplicationController
-before_action :set_alien, only: [:show, :edit, :update, :destroy]
+    before_action :logged_in_user
+    before_action :set_alien, only: [:show, :edit, :update, :destroy]
     def index 
         @aliens = Alien.all
         render :index
     end
 
     def new
-        @alien = Alien.new
+        @alien = current_user.aliens.new
         render :new
     end
 
     def create
-        @alien = Alien.new(alien_params)
-        if @alien.save
+        @alien = current_user.aliens.build(alien_params)
+        if @alien.save(alien_params)
+            flash[:success] = "Alien has been created!"
         redirect_to @alien
         else
             render :new
@@ -24,12 +26,14 @@ before_action :set_alien, only: [:show, :edit, :update, :destroy]
     end
 
     def edit
+        @alien = current_user.aliens.find(params[:id])
         render :edit
     end
 
     def update
-      @alien.update(alien_params)
-      if @alien.save
+        @alien = current_user.aliens.find(params[:id])
+      if  @alien.update(alien_params)
+        flash[:success] = "Alien updated"
         redirect_to @alien
     else
         render :edit
@@ -48,7 +52,7 @@ before_action :set_alien, only: [:show, :edit, :update, :destroy]
     end
 
     def alien_params
-        params.require(:alien).permit(:name, :species, :threat_level, :origin, :psychic, :spaceship_id, :species_id)
+        params.require(:alien).permit(:name, :species, :threat_level, :origin, :psychic, :spaceship_id, :species_id, :user_id)
 
     end
 end

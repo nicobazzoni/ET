@@ -1,4 +1,5 @@
 class PlanetsController < ApplicationController
+  before_action :logged_in_user
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
     
   def index
@@ -9,12 +10,14 @@ class PlanetsController < ApplicationController
   end
   
   def new
-        @planet = Planet.new
         
+        @planet = current_user.planets.new
+        render :new
       end
       def create
-        @planet = Planet.new(planet_params)
+        @planet = current_user.planets.build(planet_params)
         if @planet.save
+            flash[:success] = "planet has been created!"
         redirect_to @planet
         else
             render :new
@@ -23,10 +26,12 @@ class PlanetsController < ApplicationController
 
     def show
      
-        @planet = Planet.find_by(params[:id])
+        
     end
 
     def edit
+      @planet = current_user.planets.find(params[:id])
+        
         render :edit
     end
 
@@ -51,6 +56,6 @@ class PlanetsController < ApplicationController
         end
 
       def planet_params
-        params.require(:planet).permit(:name, :moons)
+        params.require(:planet).permit(:name, :moons, :user_id)
       end
 end

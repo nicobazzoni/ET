@@ -1,4 +1,6 @@
 class Alien < ApplicationRecord
+    belongs_to :user
+    validates_presence_of :user
     belongs_to :spaceship, optional: true
     belongs_to :species, optional: true
     validates :threat_level, numericality: { greater_than: 0, less_than_or_equal_to: 5 }
@@ -9,7 +11,13 @@ class Alien < ApplicationRecord
  
 
     
-    
+    def current_user
+      self.current_user ? current_user.name : ""
+    end
+  
+    def current_user=(u_name)
+      self.current_user = current_user.find_or_create_by(name: u_name)
+    end
     
     
     def spaceship_name

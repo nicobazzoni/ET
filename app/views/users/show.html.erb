@@ -1,0 +1,29 @@
+<br></br>
+     <div class="nav navbar-right ">
+        <h4>  ET creator: <%= @user.name %> </h4>
+     </div><br></br>
+
+
+<div class="row">
+  <div class="offset-4 col-md-4">
+      <h3 class='text-center'>
+      <h2> <%= @user.name %>'s Aliens </h2>
+        <% @current_user.aliens.each do |alien| %>
+            <h1>  <%= link_to alien.name, alien %> </h1>
+           <% end %>
+          
+      </h3>
+      
+  </div>
+</div>
+
+<div class="row">
+  <div class="offset-4 col-md-4">
+      <h3 class='text-center'>
+      <h2> <%= @user.name %>'s Planets</h2>
+        <% @current_user.planets.each do |planet| %>
+            <h1>  <%= link_to planet.name, planet %> </h1>
+           <% end %>
+          </h3>
+    </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_23_233752) do
+ActiveRecord::Schema.define(version: 2021_06_25_182016) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -61,8 +61,10 @@ ActiveRecord::Schema.define(version: 2021_06_23_233752) do
     t.string "name"
     t.integer "spaceship_id"
     t.integer "species_id"
+    t.integer "user_id"
     t.index ["spaceship_id"], name: "index_aliens_on_spaceship_id"
     t.index ["species_id"], name: "index_aliens_on_species_id"
+    t.index ["user_id"], name: "index_aliens_on_user_id"
   end
 
   create_table "planets", force: :cascade do |t|
@@ -71,7 +73,9 @@ ActiveRecord::Schema.define(version: 2021_06_23_233752) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "species_id"
     t.integer "moons"
+    t.integer "user_id"
     t.index ["species_id"], name: "index_planets_on_species_id"
+    t.index ["user_id"], name: "index_planets_on_user_id"
   end
 
   create_table "spaceships", force: :cascade do |t|
@@ -92,6 +96,14 @@ ActiveRecord::Schema.define(version: 2021_06_23_233752) do
     t.index ["planet_id"], name: "index_species_on_planet_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "alien_planets", "aliens"
@@ -99,7 +111,9 @@ ActiveRecord::Schema.define(version: 2021_06_23_233752) do
   add_foreign_key "alien_planets", "species"
   add_foreign_key "aliens", "spaceships"
   add_foreign_key "aliens", "species"
+  add_foreign_key "aliens", "users"
   add_foreign_key "planets", "species"
+  add_foreign_key "planets", "users"
   add_foreign_key "spaceships", "aliens"
   add_foreign_key "species", "planets"
 end

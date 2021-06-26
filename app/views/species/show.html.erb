@@ -6,17 +6,30 @@
 <h1> <%= @species.name %><br> </h1>
 
 <% if @species.name.include?('Tall Grey') %>
-<%= image_tag("logos/download.jpg") %>
+<div class="bodyspecies">
+<%= image_tag("logos/bigAlien.jpg") %>
 <% end %>
+</div>
+
+
 <% if @species.name.include?('Reptilian') %>
-<%= image_tag("logos/images.jpg") %>
+<div class="reptilian">
+<%= image_tag("logos/reptile.jpg") %>
 <% end %>
+</div>
+
+
 <% if @species.name.include?('Xenomorph') %>
+<div class="xenomorph">
 <%= image_tag("logos/xenomorph.jpg") %>
 <% end %>
+</div>
+
 <% if @species.name.include?('Insectoid') %>
+<div class="Insectoid">
 <%= image_tag("logos/insect.jpg") %>
 <% end %>
+</div>
 
 <h5> Power Level </h5>
 <%= @species.power_level %>
@@ -43,7 +56,6 @@
 
 
 
-<%= button_to "Edit #{@species.name}", edit_species_path(@species), method: :get %>
-<%= button_to "Delete #{@species.name}", @species, method: :delete %>
+
     
    

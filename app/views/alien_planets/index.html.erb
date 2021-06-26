@@ -5,3 +5,14 @@
 <li> <%= link_to alien_planet.name, alien_planet %> </li>
 <% end %>
 </ul>
+
+
+<ul class="no-bullets">
+
+<% @alien_planet.species.each do |alien_planets| %> <br>
+    <% planet_species = @planets.species.find(planets.species_id) %> <br>
+    <%= link_to @planet_species.name, planet_path(@planet_species) %> <br>
+    <%= link_to alien_species.name, alien_species_path(alien_species) %> <br>
+  <% end %>
+
+</ul>

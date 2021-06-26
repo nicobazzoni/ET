@@ -1,4 +1,5 @@
    class Planet < ApplicationRecord
+    belongs_to :user
     has_many :alien_planets
     has_many :species, through: :alien_planets
     
