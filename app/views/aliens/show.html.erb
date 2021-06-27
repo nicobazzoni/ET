@@ -1,11 +1,24 @@
-<h1> Name: <%= @alien.name %> </h1>
-<h2> Species: <%= @alien.species_name %> </h2>
-<h2> Threat Level: <%= @alien.threat_level %> </h2>
-<h3> Origin: <%= @alien.origin %> </h3>
-<h3> Psychic? <%= @alien.psychic ? "Yes! I Read Minds" : "Nope, not interested in your thoughts" %> </h3>
-<h3> Spaceship: <%= @alien.spaceship_name %> </h3>
+<br>
 
+<div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title"><%=  @alien.name %></h5>
+    <p class="card-text"> <%= @alien.species_name%> </p>
+    <h5> Threat Level <h5>
+    <p class="card-text"><%= @alien.threat_level %></p>
+    <h5> Psychic status <h5>
+    <p class="card-text"><%= @alien.psychic ? "Yes! I Read Minds" : "Nope, not interested in your thoughts" %></p>
+    <h5> Spaceship: <%= @alien.spaceship_name %> </h5>
+    <a href="/aliens" class="btn btn-primary">Aliens</a>
+  
+</div>
+
+<div>
+<% if current_user && current_user.id == @alien.user_id %>
 
 <%= button_to "Edit #{@alien.name}", edit_alien_path(@alien), method: :get %>
 <%= button_to "Delete #{@alien.name}", @alien, method: :delete %>
+<% end %>
+</div>
 

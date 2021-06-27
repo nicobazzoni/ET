@@ -9,6 +9,7 @@ class AlienPlanetsController < ApplicationController
 
       
     def index 
+      
       if @planet
         @alien_planets = @planet.alien_planets
        else
@@ -29,7 +30,11 @@ class AlienPlanetsController < ApplicationController
     end
 
     def show
+      
+     @alien_planet = AlienPlanet.find_by(params[:id])
+     
       render :show
+      
     end
 
     def edit
@@ -61,7 +66,7 @@ class AlienPlanetsController < ApplicationController
     end
 
     def alien_planet_params
-        params.require(:alien_planet).permit(:name, :species_id, :species, :planet_id)
+        params.require(:alien_planet).permit(:name, :species_id, :planet_id)
 
     end
 end

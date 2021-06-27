@@ -15,7 +15,7 @@
  
    
     <% if logged_in? %> 
-    <%= link_to " 🧑🏼‍🚀 ", user_path(@current_user.id) %> 
+    <%= link_to " 🧑🏼‍🚀 HOME ", user_path(@current_user.id) %> 
       <ul class="nav navbar-right ">
         <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete %></li> 
       </ul>

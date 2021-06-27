@@ -1,6 +1,6 @@
 <%= link_to @alien_planet.name, @alien_planet %><br>
 
-<% if @alien_planet.species.any? %>
+<% if @current_user.alien_planet.species.any? %>
 <ul> 
 
   <li> <% @species.planets.each do |planet| %></li> <br>

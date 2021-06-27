@@ -20,3 +20,23 @@ body {
 .center_text {
     text-align: center;
 }
+
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+  
+  
+.card{
+    background: #000000;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    color : #ffffff;
+    text-align: center;
+    font-family: Arial;
+    position :absolute;
+    top:  20%;
+    left: 40%;
+  }
