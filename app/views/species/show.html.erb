@@ -2,7 +2,7 @@
 
 
 
-
+<div class = "div1">
 <h1> <%= @species.name %><br> </h1>
 
 <% if @species.name.include?('Tall Grey') %>
@@ -20,7 +20,7 @@
 
 
 <% if @species.name.include?('Xenomorph') %>
-<div class="xenomorph">
+
 <%= image_tag("logos/xenomorph.jpg") %>
 <% end %>
 </div>
@@ -30,6 +30,8 @@
 <%= image_tag("logos/insect.jpg") %>
 <% end %>
 </div>
+
+
 
 <h5> Power Level </h5>
 <%= @species.power_level %>
@@ -55,7 +57,7 @@
 <% end %>
 
 
-
+</div1>
 
     
    

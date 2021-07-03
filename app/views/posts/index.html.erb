@@ -1,0 +1,20 @@
+
+<p id="notice"><%= notice %></p>
+<ul>
+<h1>Posts</h1>
+<div class="container">
+    <% @posts.each do |post| %>
+     
+        <li> <%= link_to post.title, post %></li>
+        
+        <p><%= form_for Like.new do |f| %>
+        <%= f.hidden_field :post_id, value: post.id %>
+        <%= f.submit "👍 #{post.likes.size}" %>
+        <% end %>
+     
+    <% end %>
+</div>
+</ul>
+<br>
+
+<%= link_to 'New Post', new_post_path, @post %>

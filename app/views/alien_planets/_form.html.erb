@@ -1,13 +1,14 @@
 
 
-
-<h1> "Claim Planet" </h1><br>
-<%= form_for @alien_planet do |f| %><br>
-    <%= f.hidden_field :planet_id, value: @planet.id %>
+<div class="container-xxl">
+<h1> Inhabit Planet </h1><br>
+</div>
+<%= form_for [@planet, @alien_planet] do |f| %><br>
+     <%= f.hidden_field :planet_id, value: @planet.id %>
     <h3> Name of Campaign </h3> 
     <%= f.text_field :name %><br>
     <%=f.label :species %><br>
-    <%=f.collection_select :species, Species.all, :id, :name, prompt: true %><br>
+    <%=f.collection_select :species_id, Species.all, :id, :name, prompt: true %><br>
    
     <%= f.submit "Submit" %>
     <% end %>

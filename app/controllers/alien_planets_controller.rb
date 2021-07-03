@@ -1,9 +1,13 @@
 class AlienPlanetsController < ApplicationController
-    before_action :set_alien_planet, only: [:show, :edit, :update, :destroy, :create, :index]
-    before_action :set_planet
+  before_action :logged_in_user
+  before_action :set_alien_planet, only: [:show, :edit, :update, :destroy, :create, :index]
+  before_action :set_species
+  before_action :set_planet
     def new
+      
       @alien_planet = AlienPlanet.new
       render :new 
+
     end
   
 
@@ -11,7 +15,7 @@ class AlienPlanetsController < ApplicationController
     def index 
       
       if @planet
-        @alien_planets = @planet.alien_planets
+        @alien_planets = @alien_planet.species.planets
        else
         @alien_planets = AlienPlanet.all 
        end
@@ -21,6 +25,7 @@ class AlienPlanetsController < ApplicationController
       def create
        
        @alien_planet = AlienPlanet.new(alien_planet_params)
+       
        if @alien_planet.save
         redirect_to @alien_planet 
        else
@@ -30,8 +35,8 @@ class AlienPlanetsController < ApplicationController
     end
 
     def show
-      
-     @alien_planet = AlienPlanet.find_by(params[:id])
+    
+     
      
       render :show
       
@@ -59,10 +64,13 @@ class AlienPlanetsController < ApplicationController
     private
 
     def set_planet 
-      @planet = Planet.find_by_id(params[:id])
+      @planet = Planet.find_by_id(params[:planet_id])
     end
     def set_alien_planet
-        @alien_planet = AlienPlanet.find_by(params[:id])
+        @alien_planet = AlienPlanet.find_by(params[:alien_planetid])
+    end
+    def set_species 
+      @species = Species.find_by_id(params[:species_id])
     end
 
     def alien_planet_params

@@ -13,7 +13,7 @@ class AliensController < ApplicationController
 
     def create
         @alien = current_user.aliens.build(alien_params)
-        if @alien.save(alien_params)
+        if @alien.save
             flash[:success] = "Alien has been created!"
         redirect_to @alien
         else

@@ -1,7 +1,7 @@
 class AlienPlanet < ApplicationRecord
     belongs_to :species, optional: true
     belongs_to :planet, optional: true
-   
+     validates :name, presence: true 
      validates_presence_of :species
      validates_presence_of :planet
   

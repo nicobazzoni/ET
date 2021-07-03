@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_25_182016) do
+ActiveRecord::Schema.define(version: 2021_07_03_014446) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -45,9 +45,7 @@ ActiveRecord::Schema.define(version: 2021_06_25_182016) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "planet_id"
-    t.integer "alien_id"
     t.integer "species_id"
-    t.index ["alien_id"], name: "index_alien_planets_on_alien_id"
     t.index ["planet_id"], name: "index_alien_planets_on_planet_id"
     t.index ["species_id"], name: "index_alien_planets_on_species_id"
   end
@@ -67,6 +65,15 @@ ActiveRecord::Schema.define(version: 2021_06_25_182016) do
     t.index ["user_id"], name: "index_aliens_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "planets", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -76,6 +83,14 @@ ActiveRecord::Schema.define(version: 2021_06_25_182016) do
     t.integer "user_id"
     t.index ["species_id"], name: "index_planets_on_species_id"
     t.index ["user_id"], name: "index_planets_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "likes_count"
   end
 
   create_table "spaceships", force: :cascade do |t|
@@ -106,12 +121,13 @@ ActiveRecord::Schema.define(version: 2021_06_25_182016) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "alien_planets", "aliens"
   add_foreign_key "alien_planets", "planets"
   add_foreign_key "alien_planets", "species"
   add_foreign_key "aliens", "spaceships"
   add_foreign_key "aliens", "species"
   add_foreign_key "aliens", "users"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
   add_foreign_key "planets", "species"
   add_foreign_key "planets", "users"
   add_foreign_key "spaceships", "aliens"

@@ -1,24 +1,49 @@
+
 <br>
-
-<div class="card" style="width: 18rem;">
-
+<% if @alien.species_name.include?('Xenomorph') %>
+  <div class="xenomorph">
+  <%= image_tag("logos/xenomorph.jpg") %>
+  <% end %>
+  </div>
+  <% if @alien.species_name.include?('Insectoid') %>
+  <div class="insectoid">
+  <%= image_tag("logos/insect.jpg") %>
+  <% end %>
+  <% if @alien.species_name.include?('Tall Grey') %>
+  <div class=".bodyspecies">
+  <%= image_tag("logos/bigAlien.jpg") %>
+  <% end %>
+  </div>
+  <% if @alien.species_name.include?('Reptilian') %>
+  <div class="reptilian">
+  <%= image_tag("logos/reptile.jpg") %>
+  <% end %>
+  </div>
+  
+  
+  
+  <div class="card" style="width: 18rem;">
+  
+  
+  
   <div class="card-body">
-    <h5 class="card-title"><%=  @alien.name %></h5>
+    <h1 class="card-title"><%=  @alien.name %></h1>
     <p class="card-text"> <%= @alien.species_name%> </p>
     <h5> Threat Level <h5>
     <p class="card-text"><%= @alien.threat_level %></p>
     <h5> Psychic status <h5>
-    <p class="card-text"><%= @alien.psychic ? "Yes! I Read Minds" : "Nope, not interested in your thoughts" %></p>
+    <p class="card-text"><%= @alien.psychic ? "Yes! I Read Minds" : "No" %></p>
     <h5> Spaceship: <%= @alien.spaceship_name %> </h5>
     <a href="/aliens" class="btn btn-primary">Aliens</a>
   
-</div>
+  </div>
 
-<div>
-<% if current_user && current_user.id == @alien.user_id %>
+ <div>
+ <% if current_user && current_user.id == @alien.user_id %>
 
-<%= button_to "Edit #{@alien.name}", edit_alien_path(@alien), method: :get %>
-<%= button_to "Delete #{@alien.name}", @alien, method: :delete %>
-<% end %>
+ <%= button_to "Edit #{@alien.name}", edit_alien_path(@alien), method: :get %>
+ <%= button_to "Delete #{@alien.name}", @alien, method: :delete %>
+  <% end %>
+ </div>
 </div>
 

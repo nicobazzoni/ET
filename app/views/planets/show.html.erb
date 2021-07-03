@@ -1,8 +1,10 @@
 
 <br>
+<div class = "div1">
+<div class="container-xxl">
 <h1> <%= link_to @planet.name, @planet %> </h1><br></br>
-
-<%= link_to "Claim This Planet ", new_planet_alien_planet_path(@planet) %>
+</div>
+<%= link_to "Inhabit This Planet ", new_planet_alien_planet_path(@planet) %>
  
 
 <h5> Number of Moons </h5>
@@ -16,9 +18,12 @@
  
 <h5> Species Inhabiting <%= @planet.name %> </h5>
 
+<div class = "div1">
 <% if @planet.species.any? %>
 <% @planet.species.each do |species| %> <br>
+  
    <h1> <%= link_to species.name, species %> </h1>
+   </div>
   <% end %>
  <% else %>
 <%= @planet.name %> is vacant! 

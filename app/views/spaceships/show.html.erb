@@ -3,14 +3,20 @@
 
 
 <% if @spaceship.name.include?('TR-3B') %>
-<%= image_tag("logos/tr3b.jpg") %>
+<div class="tr3b">
+<%= image_tag("logos/tr3b2.jpg") %>
 <% end %>
+</div>
 
 <% if @spaceship.name.include?('Flying Disc') %>
-<%= image_tag("logos/ufo.jpg") %>
+<div class="disc">
+<%= image_tag("logos/flydisc.jpg") %>
 <% end %>
+</div>
 
 <% if @spaceship.name.include?('Mothership') %>
-<%= image_tag("logos/mother.jpg") %>
+<div class="mothership">
+<%= image_tag("logos/Finalbattle77.jpg") %>
 <% end %>
+</div>
 

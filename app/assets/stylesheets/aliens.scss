@@ -29,7 +29,7 @@ body {
   
   
 .card{
-    background: #000000;
+    background: transparent;
     padding: 20px;
     width: 100%;
     max-width: 500px;
@@ -40,3 +40,32 @@ body {
     top:  20%;
     left: 40%;
   }
+
+  .blackdiv {
+      background : red;
+      width : 100%;
+  }
+
+  .bodyspecies {
+    background-image:url("logos/bigAlien");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    .reptilian {
+        background-image:url("logos/reptile");
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
+
+        .xenomorph {
+            background-image:url("logos/xenomorph");
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+
+            .insectoid {
+                background-image:url("logos/insect");
+                background-repeat: no-repeat;
+                background-size: cover;
+                }
