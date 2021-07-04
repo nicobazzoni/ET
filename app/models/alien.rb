@@ -5,8 +5,10 @@ class Alien < ApplicationRecord
     belongs_to :species, optional: true
     validates :threat_level, numericality: { greater_than: 0, less_than_or_equal_to: 5 }
     validates :name, :threat_level, :origin, presence: true
-  
+     
     has_many_attached :images, :dependent => :destroy
+
+    scope :psychic_aliens, -> { where(psychic: true) }
     
  
 

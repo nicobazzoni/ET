@@ -5,7 +5,7 @@
 <ul class="no-bullets">
 <h2>planet </h2>
 <% @alien_planets.each do |alien_planet| %>
-<li><%= link_to alien_planet.name, planet_alien_planets_path(@alien_planet)  %></li>
+<li><%= link_to alien_planet.name, alien_planet_path(@alien_planet)  %></li>
 <% end %>
 
 

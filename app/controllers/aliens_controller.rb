@@ -45,7 +45,11 @@ class AliensController < ApplicationController
     redirect_to aliens_path
    end
 
-
+    def psychic_aliens
+        @aliens = Alien.where(psychic: true) 
+    end
+    
+    
     private
     def set_alien
         @alien = Alien.find(params[:id])

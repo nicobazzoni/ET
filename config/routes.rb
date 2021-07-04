@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   get 'solar', to: 'homes#solar'
   get 'nasa_images', to: 'nasa_api#nasa_images'
+  get 'aliens/psychic_aliens'
   resources :aliens
   resources :spaceships
   resources :users
