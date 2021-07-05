@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_many :aliens, dependent: :destroy
     has_many :planets, dependent: :destroy
     has_many :likes
+    has_one_attached :avatar
     has_secure_password
     before_save { self.email = email.downcase }
     validates :name, presence: true

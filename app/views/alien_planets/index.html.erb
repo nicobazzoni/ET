@@ -1,11 +1,11 @@
 <br>
 <div class="container-sml">
-<h1> Inhabited Planets </h1>
+<h1> Inhabitation Campaigns </h1>
 
 <ul class="no-bullets">
-<h2>planet </h2>
+
 <% @alien_planets.each do |alien_planet| %>
-<li><%= link_to alien_planet.name, alien_planet_path(@alien_planet)  %></li>
+<li><%= link_to alien_planet.name, alien_planets_path([:alien_planet_id])  %></li>
 <% end %>
 
 

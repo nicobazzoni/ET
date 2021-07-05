@@ -1,8 +1,13 @@
 <br></br>
 
-<h2> <%= link_to " My Posts", posts_path  %> </h2>
+          
+<h2> <%= link_to " Posts", posts_path  %> </h2>
      <div class="nav navbar-right ">
         <h4>  ET creator: <%= @user.name %> </h4>
+        <br>
+        <% if @user.avatar.attached? %>
+<image src="<%=(url_for(@user.avatar)) %>" alt="profile pic" height="250", width="250"><br>
+      <% end %>
      </div><br></br>
 
 
@@ -29,3 +34,12 @@
           </h3>
     </div>
 </div>
+
+<%= link_to 'Edit', edit_user_path, user %> |
+<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> |
+
+
+      
+
+ 
+          
