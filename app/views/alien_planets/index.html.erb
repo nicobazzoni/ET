@@ -5,7 +5,7 @@
 <ul class="no-bullets">
 
 <% @alien_planets.each do |alien_planet| %>
-<li><%= link_to alien_planet.name, alien_planets_path([:alien_planet_id])  %></li>
+<li><%= link_to alien_planet.name, alien_planets_path(@alien_planet)  %></li>
 <% end %>
 
 

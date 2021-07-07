@@ -11,7 +11,14 @@ Rails.application.routes.draw do
   get 'aliens/psychic_aliens'
   resources :aliens
   resources :spaceships
-  resources :users
+  resources :users do 
+    member do
+    post 'search'
+    end
+  end
+  
+  get "/auth/google_oauth2/callback", to: "sessions#google_omniauth"
+  
   resources :alien_planets
   resources :species
   resources :nasa_api

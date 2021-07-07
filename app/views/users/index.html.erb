@@ -1,8 +1,14 @@
 <br>
 <h2> Users </h2>
-<ul class="no-bullets">
-<% @users.each do |user| %>
+<div class="center">
+<%= form_tag users_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
 
-   <p> <%=  user.name %> </p>
-    <% end %>
-    </ul>
+<% end %>
+</div>
+
+<%= @user.search %>
+ 

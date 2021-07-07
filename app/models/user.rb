@@ -11,12 +11,40 @@ class User < ApplicationRecord
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
     validates :password, presence: true, length: { minimum: 6 }
   
+    include Filterable
 
+    def self.find_or_create_from_google(user_info)
+      find_or_create_by(email: user_info[:email]) do |user|
+        user.username = user_info[:name]
+        user.profile_pic = user_info[:image]
+        user.password = SecureRandom.hex
+      end
+    end
+    
     def alien_name
         self.aliens ? aliens.name : ""
       end
     
       def alien_name=(a_name)
         self.aliens = current_user.aliens.find_or_create_by(name: a_name)
+      end
+
+      def planet_name
+        self.planet ? planet.name : ""
+      end
+    
+      def planet_name=(p_name)
+        self.planet = Planet.find_or_create_by(name: p_name)
+      end
+      
+
+      def self.search(search)
+    
+        if search
+          User.where(' email LIKE :query', query: "%#{search}%")
+          
+        else
+        @users = User.all
+        end
       end
   end

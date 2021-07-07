@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    before_action :logged_in_user, only: [:show]
+    before_action :logged_in_user, only: [:show, :edit]
     
     
     def show
@@ -14,8 +14,9 @@ class UsersController < ApplicationController
     end
 
     def index
-        @users = User.all
-    end 
+        @users = User.all.order('created_at DESC')
+       @users = @users.search(params[:search]) if params[:search].present?   
+    end
   
     def create
       @user = User.new(user_params)
@@ -43,10 +44,15 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_path
    end
+
+   def search
+    @users = User.all.order('created_at DESC')
+       @users = @users.search(params[:search]) if params[:search].present?   
+    end
   
     private
   
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :search)
     end
   end

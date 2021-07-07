@@ -17,4 +17,16 @@ class SessionsController < ApplicationController
       log_out
       redirect_to root_url
     end
+
+    def google_omniauth
+      user_info = request.env['omniauth.auth']["info"]
+      user = User.find_or_create_from_google(user_info)
+      if user
+        session[:user_id] = user.id
+        redirect_to user
+      else
+        flash[:errors] = user.errors.full_messages
+        redirect_to login_path
+      end
+    end
   end
