@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     end
 
     def index
+      
         @users = User.all.order('created_at DESC')
        @users = @users.search(params[:search]) if params[:search].present?   
     end
@@ -27,11 +28,13 @@ class UsersController < ApplicationController
         render 'new'
       end
     end
+    
     def edit
       @user = User.find(params[:id])
     end
 
     def update
+      @user = User.find(params[:id])
       @user.update(user_params)
       if @user.save
         redirect_to @user

@@ -6,11 +6,11 @@
 <h1><%= @alien_planet.name %><br></h1>
    
 <h2> Species </h2>
-<%= link_to @alien_planet.species_name, planet_alien_planets_path(@species) %> 
+<%= link_to @alien_planet.species_name, planet_alien_planets_path(@alien_planet) %> 
  
 <h2> Species Threat Level :
  
-<%= @alien_planet.species.threat__level %> </h2> <br>
+<%= @alien_planet.species %> </h2> <br>
     
     
    

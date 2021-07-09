@@ -1,15 +1,16 @@
 <br></br>
 
-          
-<h2> <%= link_to " Posts", posts_path  %> </h2>
-     <div class="nav navbar-right ">
-        <h4>  ET creator: <%= @user.name %> </h4>
+<div class="nav navbar-right ">
+        <h1>  ET creator: <%= @user.name %> </h1><br>
+        </div><br></br>
+        <div class="nav navbar-left ">
+        <% if @current_user.avatar.attached? %>
         <br>
-        <% if @user.avatar.attached? %>
-<image src="<%=(url_for(@user.avatar)) %>" alt="profile pic" height="250", width="250"><br>
+      <image src="<%=(url_for(@current_user.avatar)) %>" alt="profile pic" height="250", width="250"><br>
       <% end %>
-     </div><br></br>
+     </div>          
 
+     <h2> <%= link_to " Posts", posts_path  %> </h2>
 
 <div class="row">
   <div class="offset-4 col-md-4">
@@ -34,6 +35,10 @@
           </h3>
     </div>
 </div>
+     
+
+
+
 
 
 
