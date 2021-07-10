@@ -14,8 +14,8 @@ class AlienPlanetsController < ApplicationController
       
     def index 
       
-      if @planet
-        @alien_planets = @alien_planet.species.planets
+      if @planet 
+        @alien_planets = @planet.alien_planets
        else
         @alien_planets = AlienPlanet.all 
        end
@@ -27,7 +27,7 @@ class AlienPlanetsController < ApplicationController
        @alien_planet = AlienPlanet.new(alien_planet_params)
        
        if @alien_planet.save
-        redirect_to @alien_planet 
+        redirect_to @alien_planet.planet 
        else
         render :new
        end
@@ -57,7 +57,7 @@ class AlienPlanetsController < ApplicationController
 
    def destroy
     @alien_planet.destroy
-    redirect_to spaceships_path
+    redirect_to planets_path
    end
 
 

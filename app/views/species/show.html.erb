@@ -29,6 +29,10 @@
 <div class="Insectoid">
 <%= image_tag("logos/insect.jpg") %>
 <% end %>
+<% if @species.name.include?('Plasma Being') %>
+<div class="plasma_being">
+<%= image_tag("logos/psychodelic-meditation.jpg") %>
+<% end %>
 </div>
 
 

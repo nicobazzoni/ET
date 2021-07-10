@@ -1,9 +1,9 @@
 
 
    <%= form_for @species do |f| %>
-    <% if @planet.errors.any? %>
-    <p><%= "#{pluralize(@planet.errors.count, "error")} prevented this Planet from being saved:" %></p>
-    <ul><% @planet.errors.each do |error| %>
+    <% if @species.errors.any? %>
+    <p><%= "#{pluralize(@species.errors.count, "error")} prevented this species from being saved:" %></p>
+    <ul><% @species.errors.each do |error| %>
       <li><%= error.full_message %></li>
     <% end %>
     <% end %>
@@ -11,6 +11,6 @@
     <%=f.text_field :name %><br>
     <%= f.submit %>
     <% end %>
-    <%= link_to 'Back', planets_path %>
+    <%= link_to 'Back', species_path(@species) %>
   
   

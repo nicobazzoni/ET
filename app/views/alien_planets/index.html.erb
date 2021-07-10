@@ -1,19 +1,31 @@
 <br>
 <div class="container-sml">
 <h1> Inhabitation Campaigns </h1>
+ 
+
+<% if @planet %>
+<h1> <%= @planet.name %> </h1>
+<% end %>
+
 
 <ul class="no-bullets">
 
 <% @alien_planets.each do |alien_planet| %>
-<li><%= link_to alien_planet.name, planet_alien_planets_path(@alien_planet.planet.id)  %></li>
+<%= link_to alien_planet do %>
+  <div class="card-body">
+    
+   
+ 
+
+<h5> Campaign Name </h5>
+<li><%= link_to alien_planet.name, planet_alien_planets_path(alien_planet.planet)  %></li>
+<h5> Species </h5>
+<li><%= link_to alien_planet.species_name, alien_planet.species  %></li>
+<h5> Planet </h5>
+<li><%= link_to alien_planet.planet_name, alien_planet.planet  %></li>
 <% end %>
+<% end %>
+ </div>
+ </ul>
 
 
-
-
-</ul>
-
-
-<ul class="no-bullets">
-
-</div>

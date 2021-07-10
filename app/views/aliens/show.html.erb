@@ -18,6 +18,11 @@
   <div class="reptilian">
   <%= image_tag("logos/reptile.jpg") %>
   <% end %>
+  <% if @alien.species_name.include?('Plasma Being') %>
+<div class="plasma_being">
+<%= image_tag("logos/psychodelic-meditation.jpg") %>
+<% end %>
+  
   </div>
   
   

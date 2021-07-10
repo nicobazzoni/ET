@@ -1,14 +1,15 @@
 <br></br>
 
-<div class="nav navbar-right ">
+
         <h1>  ET creator: <%= @user.name %> </h1><br>
-        </div><br></br>
-        <div class="nav navbar-left ">
+        
+        <div class = "object-position-1" >
         <% if @current_user.avatar.attached? %>
+        </div>
         <br>
       <image src="<%=(url_for(@current_user.avatar)) %>" alt="profile pic" height="250", width="250"><br>
       <% end %>
-     </div>          
+             
 
      <h2> <%= link_to " Posts", posts_path  %> </h2>
 
