@@ -6,7 +6,12 @@
 ET creator is a simulation app inspired by ufology. Create aliens with characteristics, terraform planets, inhabit planets with different species of aliens, and more!  
 
 # Setup
-download gem dependencies, clone this repo, cd into it then run rails s. 
+download gem dependencies,
+* bootstrap 
+* google-omniauth 
+
+# Run
+* clone this repo, cd into it then run rails s. 
 
 # Developer
 *Nico Bazzoni*
