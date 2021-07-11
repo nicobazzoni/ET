@@ -17,5 +17,5 @@ ET creator is a simulation app inspired by ufology. Create aliens with character
 * clone this repo, cd into it then run rails s. 
 
 # Developer
-*Nico Bazzoni*
-*Flatiron School, 2021* 
+*Nico Bazzoni
+*Flatiron School, 2021
