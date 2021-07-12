@@ -5,6 +5,8 @@
 <div class = "div1">
 <h1> <%= @species.name %><br> </h1>
 
+
+
 <% if @species.name.include?('Tall Grey') %>
 <div class="bodyspecies">
 <%= image_tag("logos/bigAlien.jpg") %>
@@ -20,7 +22,6 @@
 
 
 <% if @species.name.include?('Xenomorph') %>
-
 <%= image_tag("logos/xenomorph.jpg") %>
 <% end %>
 </div>

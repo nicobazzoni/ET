@@ -14,9 +14,9 @@ class UsersController < ApplicationController
     end
 
     def index
-      
-        @users = User.all.order('created_at DESC')
-       @users = @users.search(params[:search]) if params[:search].present?   
+      @users = User.where(["name LIKE ? ","%#{params[:search]}%"])
+      #   @users = User.all.order('created_at DESC')
+      #  @users = @users.search(params[:search]) if params[:search].present?   
     end
   
     def create
@@ -48,10 +48,14 @@ class UsersController < ApplicationController
     redirect_to users_path
    end
 
-   def search
-    @users = User.all.order('created_at DESC')
-       @users = @users.search(params[:search]) if params[:search].present?   
-    end
+   def search  
+    if params[:search].blank?  
+      redirect_to(root_path, alert: "Empty field!") and return  
+    else  
+      @parameter = params[:search].downcase  
+      @results = User.all.where("lower(name) LIKE :search", search: @parameter)  
+    end  
+  end
   
     private
   

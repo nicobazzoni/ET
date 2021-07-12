@@ -9,13 +9,15 @@ Rails.application.routes.draw do
   get 'solar', to: 'homes#solar'
   get 'nasa_images', to: 'nasa_api#nasa_images'
   get 'aliens/psychic_aliens'
+  
+  get '/search' => 'users#search', :as => 'search_page'
   resources :aliens
   resources :spaceships
-  resources :users do 
-    member do
-    post 'search'
-    end
-  end
+  
+  resources :users  
+  
+    
+  
   
   get "/auth/google_oauth2/callback", to: "sessions#google_omniauth"
   

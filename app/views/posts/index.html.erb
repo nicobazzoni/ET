@@ -6,13 +6,21 @@
     <% @posts.each do |post| %>
      
         <li> <%= link_to post.title, post %></li>
+      
+        <p><%= form_for User .new do |f| %>
+        <%= f.hidden_field :user_id, value: user.id %>
+         <% end %>
+        
         
         <p><%= form_for Like.new do |f| %>
+        
         <%= f.hidden_field :post_id, value: post.id %>
         <%= f.submit "👍 #{post.likes.size}" %>
         <% end %>
+        
      
     <% end %>
+    
  </div>
 </div>
 
