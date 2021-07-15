@@ -25,3 +25,8 @@
     text-decoration:none; 
 }
 
+.show img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+  }

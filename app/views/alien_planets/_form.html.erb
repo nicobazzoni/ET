@@ -1,7 +1,7 @@
 
 
 <div class="container-xxl">
-<h1> Inhabit Planet </h1><br>
+<h1> <%= "Inhabit #{@planet.name}" %></h1>
 </div>
 <%= form_for [@planet, @alien_planet] do |f| %><br>
      <%= f.hidden_field :planet_id, value: @planet.id %>

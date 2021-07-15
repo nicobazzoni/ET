@@ -14,9 +14,10 @@ class UsersController < ApplicationController
     end
 
     def index
-      @users = User.where(["name LIKE ? ","%#{params[:search]}%"])
-      #   @users = User.all.order('created_at DESC')
-      #  @users = @users.search(params[:search]) if params[:search].present?   
+         
+          @users = User.all.order('created_at DESC')
+        @users = User.search(params[:search]) if params[:search].present?   
+       
     end
   
     def create

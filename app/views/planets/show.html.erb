@@ -1,14 +1,19 @@
 
 <br>
-<div class = "div1">
-<div class="container-xxl">
-<h1> <%= link_to @planet.name, @planet %> </h1><br></br>
-</div>
-<%= link_to "Inhabit This Planet ", new_planet_alien_planet_path(@planet) %>
- 
+<div class="exoplanetes">
+  <%= image_tag("logos/exoplanets.jpg") %>
+ </div>
 
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h1 class="card-title"><%=  link_to @planet.name, @planet%></h1>
+    <br>
+    
+    <h2> <%= link_to "Inhabit #{@planet.name}", new_planet_alien_planet_path(@planet)%> </h2>
+    
 <h5> Number of Moons </h5>
 <%= @planet.moons %><br>
+</div>
 <br>
 
 
@@ -28,3 +33,7 @@
  <% else %>
 <%= @planet.name %> is vacant! 
 <% end %>
+
+
+
+</div>
