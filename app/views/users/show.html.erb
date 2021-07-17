@@ -7,7 +7,7 @@
         <% if @current_user.avatar.attached? %>
         </div>
         <br>
-      <image src="<%=(url_for(@current_user.avatar)) %>" alt="profile pic" height="250", width="250"><br>
+      <image src="<%=(image_tag_for(@current_user.avatar)) %>" alt="profile pic" height="250", width="250"><br>
       <% end %>
              
 
@@ -39,7 +39,12 @@
 </div>
      
 
-<h2> <%= link_to " Search", users_path %> </h2>
+<h2> <%= link_to " Search Users", users_path %> </h2>
+
+
+
+ 
+
 
 
 

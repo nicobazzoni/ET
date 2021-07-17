@@ -4,6 +4,7 @@
 <h1> <%= "Inhabit #{@planet.name}" %></h1>
 </div>
 <%= form_for [@planet, @alien_planet] do |f| %><br>
+<%= render partial: "layouts/errors", locals: {record: @alien_planet} %>
      <%= f.hidden_field :planet_id, value: @planet.id %>
     <h3> Name of Campaign </h3> 
     <%= f.text_field :name %><br>

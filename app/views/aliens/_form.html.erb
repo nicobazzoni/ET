@@ -2,12 +2,7 @@
 
 <h1> Create an Alien </h1>
 <%= form_for @alien do |f| %>
-    <% if @alien.errors.any? %>
-    <p><%= "#{pluralize(@alien.errors.count, "error")} prevented this Alien from being saved:" %></p>
-    <ul><% @alien.errors.each do |error| %>
-      <li><%= error.full_message %></li>
-    <% end %>
-    <% end %>
+  <%= render partial: "layouts/errors", locals: {record: @alien} %>
     <%=f.label :name %><br>
     <%=f.text_field :name %><br>
     <%=f.label :threat_level %><br>

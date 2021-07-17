@@ -3,7 +3,7 @@
     has_many :alien_planets
     has_many :species, through: :alien_planets
     
-    
+    validates :moons, numericality: { less_than_or_equal_to: 50 }
     validates :name, presence: true
     
     

@@ -3,12 +3,8 @@
  
 
   <%= form_for @planet do |f| %>
-    <% if @planet.errors.any? %>
-    <p><%= "#{pluralize(@planet.errors.count, "error")} prevented this Planet from being saved:" %></p>
-    <ul><% @planet.errors.each do |error| %>
-      <li><%= error.full_message %></li>
-    <% end %>
-    <% end %> <br>
+     <%= render partial: "layouts/errors", locals: {record: @planet} %>
+     <br>
     <h2> Name of Planet </h2><br>
     <%=f.text_field :name %><br>
      <h2> Moons </h2><br>

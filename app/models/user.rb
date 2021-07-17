@@ -48,4 +48,6 @@ class User < ApplicationRecord
         @users = User.all
         end
       end
+
+     
   end
