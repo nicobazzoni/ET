@@ -8,3 +8,9 @@
 Spaceship.create(name:"TR-3B", speed:300.000000)
 Spaceship.create(name:"Flying Disc", speed:500.553000)
 Spaceship.create(name:"Mothership", speed:10.599000000)
+Species.create(name:"Tall Grey", power_level:3)
+Species.create(name:"Reptilian", power_level:5)
+Species.create(name:"Plasma Being", power_level:10)
+Species.create(name:"Insectoid", power_level:10)
+Species.create(name:"Xenomorph", power_level:9)
+
