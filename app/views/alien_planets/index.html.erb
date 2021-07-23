@@ -12,28 +12,22 @@
 <% if @planet %>
 <h1> <%= @planet.name %> </h1>
 <% end %>
-
-
-
-
+<div class= "cards">
 <% @alien_planets.each do |alien_planet| %>
 <%= link_to alien_planet do %>
-  
-    
-   
+
+<h1>  <%= link_to alien_planet.name, planet_alien_planets_path(alien_planet.planet)  %>  </h1>
+<h5> Species: <%= link_to alien_planet.species_name, alien_planet.species  %></h5>
+<h5> Planet:  <%= link_to alien_planet.planet_name, alien_planet.planet  %></h5>
+
+  <% end %>
+<% end %>
+    </div>
+   </div>
+   </div>
+  </div>
+
  
-
-<h6> Campaign Name:  <%= link_to alien_planet.name, planet_alien_planets_path(alien_planet.planet)  %>  </h6>
-<h5> Species </h5>
-<%= link_to alien_planet.species_name, alien_planet.species  %>
-<h5> Planet </h5>
-<%= link_to alien_planet.planet_name, alien_planet.planet  %>
-
-<% end %>
-<% end %>
-<>
-</div>
- </div>
- </ul>
+ 
 
 
