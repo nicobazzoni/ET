@@ -1,10 +1,14 @@
 
-
+<div class = "alien_faces">
+  <%= image_tag("logos/psychic.jpeg") %>
+ </div>
+ <div class ="card">
 <h3> Psychic Aliens </h3>
 <ul class="no-bullets">
 
 <% @aliens.each do |alien| %>
-    <li> <%= link_to alien.name, alien %> </li>
+    <li> <h2> <%= link_to alien.name, alien %> </h2> </li>
     <% end %>
     </ul>
+     </div>
     </div>

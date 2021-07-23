@@ -1,8 +1,13 @@
 <h1> Species </h1>
+<div class = "alien_faces">
+  <%= image_tag("logos/bluealiens.webp") %>
+ </div>
 <ul class="no-bullets">
+<div class = "card ">
 <% @species.each do |species| %>
   <h1>  <%= link_to species.name, species %> </h1>
   <% end %>
+  </div>
     </ul>
 
     

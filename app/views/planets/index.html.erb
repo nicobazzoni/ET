@@ -1,13 +1,20 @@
-<h1> Planets</h1>
+<div class = "alien_faces">
+  <%= image_tag("logos/abstract-planets.jpeg") %>
+ </div>
+
 
 <ul class="no-bullets">
+<div class = "card">
+<h1> Planets</h1>
 <% @planets.each do |planet| %>
    <h1> <li> <%= link_to planet.name, planet %> </li> </h1>
    <% end %>
+   
     </ul>
 
     <h1> Create New Planet </h1>
 <%= link_to " 🌍 ", new_planet_path %><br>
+ </div>
 
     
 
