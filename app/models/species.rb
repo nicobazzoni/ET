@@ -4,6 +4,8 @@ class Species < ApplicationRecord
     has_many :planets, through: :alien_planets
     accepts_nested_attributes_for :alien_planets
     validates :power_level, numericality: { greater_than: 0, less_than_or_equal_to: 10 }
+    
+    
     def alien_planet_attributes=(alien_planet_attributes)
         alien_planet_attributes.values.each do |alien_planet_attribute|
           alien_planet = AlienPlanet.find_or_create_by(alien_planet_attribute)

@@ -5,3 +5,22 @@
     color:#0d6efd;
     background-color: black
   }
+
+  .alien_invasion {
+    background-image:url("logos/invasion.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    
+    input {
+      display: block;
+      margin: .5em auto;
+    }
+    
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    
+    

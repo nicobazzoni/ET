@@ -35,9 +35,9 @@
     <h1 class="card-title"><%=  @alien.name %></h1>
     <p class="card-text"> <%= @alien.species_name%> </p>
     <h5> Threat Level <h5>
-    <p class="card-text"><%= @alien.threat_level %></p>
-    <h5> Psychic status <h5>
-    <p class="card-text"><%= @alien.psychic ? "Yes! I Read Minds" : "No" %></p>
+    <h1 class="card-text"><%= @alien.threat_level %></h1>
+    <h5> Psychic: <%= @alien.psychic ? " I know what you're thinking" : "No" %></h5>
+    <h5> Origin: <%= @alien.origin %></h5>
     <h5> Spaceship: <%= @alien.spaceship_name %> </h5>
     <a href="/aliens" class="btn btn-primary">Aliens</a>
   

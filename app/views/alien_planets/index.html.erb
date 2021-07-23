@@ -1,6 +1,12 @@
 <br>
-<div class="container-sml">
-<h1> Inhabitation Campaigns for: </h1>
+
+  <div class="alien_invasion">
+  <%= image_tag("logos/invasion.jpeg") %>
+  
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+  
+<h1> Inhabitation Campaigns: </h1>
  
 
 <% if @planet %>
@@ -8,23 +14,25 @@
 <% end %>
 
 
-<ul class="no-bullets">
+
 
 <% @alien_planets.each do |alien_planet| %>
 <%= link_to alien_planet do %>
-  <div class="card-body">
+  
     
    
  
 
-<h6> Campaign Name </h6>
-<li> <h2> <%= link_to alien_planet.name, planet_alien_planets_path(alien_planet.planet)  %> </h2> </li>
+<h6> Campaign Name:  <%= link_to alien_planet.name, planet_alien_planets_path(alien_planet.planet)  %>  </h6>
 <h5> Species </h5>
-<li><%= link_to alien_planet.species_name, alien_planet.species  %></li>
+<%= link_to alien_planet.species_name, alien_planet.species  %>
 <h5> Planet </h5>
-<li><%= link_to alien_planet.planet_name, alien_planet.planet  %></li>
+<%= link_to alien_planet.planet_name, alien_planet.planet  %>
+
 <% end %>
 <% end %>
+<>
+</div>
  </div>
  </ul>
 
