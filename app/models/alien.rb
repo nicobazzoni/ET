@@ -13,16 +13,16 @@ class Alien < ApplicationRecord
  
 
     
-    def current_user
-      self.current_user ? current_user.name : ""
-    end
+    # def current_user
+    #   self.current_user ? current_user.name : ""
+    # end
   
-    def current_user=(u_name)
-      self.current_user = current_user.find_or_create_by(name: u_name)
-    end
+    # def current_user=(u_name)
+    #   self.current_user = current_user.find_or_create_by(name: u_name)
+    # end
     
     
-    def spaceship_name
+      def spaceship_name
         self.spaceship ? spaceship.name : ""
       end
     
@@ -44,5 +44,9 @@ class Alien < ApplicationRecord
           planet = Planet.find_or_create_by(planet_attribute)
           self.planet << planet
         end
+      end
+
+      def moon
+        self.first.species.planets.moon_number
       end
 end

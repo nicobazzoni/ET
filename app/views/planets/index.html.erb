@@ -5,16 +5,23 @@
 
 <ul class="no-bullets">
 <div class = "card">
+    <h1> Create New Planet </h1>
+<%= link_to " 🌍 ", new_planet_path %><br>
 <h1> Planets</h1>
 <% @planets.each do |planet| %>
    <h1> <li> <%= link_to planet.name, planet %> </li> </h1>
    <% end %>
+   <h1> Most Moons </h1>
+<% @planets.many_moons.each do |p|  %>
+<%= p.name %>
+
+<% end %>
    
     </ul>
+    
 
-    <h1> Create New Planet </h1>
-<%= link_to " 🌍 ", new_planet_path %><br>
  </div>
+
 
     
 

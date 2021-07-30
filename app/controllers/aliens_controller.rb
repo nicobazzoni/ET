@@ -46,7 +46,7 @@ class AliensController < ApplicationController
    end
 
     def psychic_aliens
-        @aliens = Alien.where(psychic: true) 
+       @aliens = Alien.psychic_aliens
     end
     
     

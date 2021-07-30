@@ -6,6 +6,8 @@
     validates :moons, numericality: { less_than_or_equal_to: 50 }
     validates :name, presence: true
     
+    scope :many_moons, -> { where("moons > 25" ) }
+    
     
     def alien_planet_name
         self.alien_planet ? alien_planet.name : ""
@@ -22,11 +24,15 @@
       def species_name=(s_name)
         self.species = Species.find_or_create_by(name: s_name)
       end
+
+
+      def self.moon_number
+         self.many_moons
+      end
      
 
       
-
-      
+       
 
  
       def alien_attributes=(alien_attributes)

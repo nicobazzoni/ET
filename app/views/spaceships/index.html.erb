@@ -1,11 +1,12 @@
 <div class="bkgd">
   <%= image_tag("logos/spaceshipbkgd.png") %>
   </div>
-<h1> Spaceships </h1>
+
 
 <ul class="no-bullets">
 
   <div class="card">
+  <h1> Spaceships </h1>
 <% @spaceships.each do |spaceship| %>
 
 <h1> <%= link_to spaceship.name, spaceship %> </h1>

@@ -4,6 +4,7 @@ class SpeciesController < ApplicationController
     def index
     
       @species = Species.all 
+      @inhabitation = Species.most_campaigns
     end
   
     

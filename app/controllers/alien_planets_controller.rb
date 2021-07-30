@@ -55,6 +55,16 @@ class AlienPlanetsController < ApplicationController
      end
    end
 
+   
+    
+    def campaigns
+    @planet = AlienPlanet.most_campaigns
+      
+     end
+    
+    
+   
+
    def destroy
     @alien_planet.destroy
     redirect_to planets_path

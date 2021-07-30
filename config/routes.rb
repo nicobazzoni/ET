@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   get '/maps', to: 'homes#maps'
   get 'solar', to: 'homes#solar'
   get 'nasa_images', to: 'nasa_api#nasa_images'
-  get 'aliens/psychic_aliens'
+  get 'aliens/psychic_aliens', to: 'aliens#psychic_aliens'
   
-  get '/search' => 'users#search', :as => 'search_page'
+  get 'alien_planets/campaigns', to: 'alien_planets#campaigns'
+  get '/search' => 'users#search', :as => 'search_page' 
   resources :aliens
   resources :spaceships
   

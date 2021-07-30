@@ -6,7 +6,7 @@ class PlanetsController < ApplicationController
    
       
       @planets = Planet.all
-
+       @many_moons = Planet.many_moons
   end
   
   def new
@@ -49,6 +49,7 @@ class PlanetsController < ApplicationController
     redirect_to planets_path
    end
       
+   
       
       private
       def set_planet

@@ -26,6 +26,10 @@ class AlienPlanet < ApplicationRecord
       def species_name=(s_name)
         self.species = Species.find_or_create_by(name: s_name)
       end
-
+        def self.most_campaigns
+          aliens = self.group(:planet_id).count
+          planet_id = aliens.sort_by { |_, v| v}.last.first 
+          @planet = Planet.find(planet_id)
+        end
       
 end
