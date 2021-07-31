@@ -9,4 +9,6 @@ class NasaApi < ApplicationRecord
     def self.get_nasa_pics
         "https://images-api.nasa.gov/apod?api_key#{ENV['NASA_API_KEY']}"
     end
+
+  
 end

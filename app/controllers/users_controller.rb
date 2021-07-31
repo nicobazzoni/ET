@@ -14,9 +14,12 @@ class UsersController < ApplicationController
     end
 
     def index
-         
-          @users = User.all.order('created_at DESC')
-        @users = User.search(params[:search]) if params[:search].present?   
+      
+      if params[:search]
+        @users = User.search(params[:search])
+      else
+        @users = []
+      end
        
     end
   
@@ -49,14 +52,7 @@ class UsersController < ApplicationController
     redirect_to users_path
    end
 
-   def search  
-    if params[:search].blank?  
-      redirect_to(root_path, alert: "Empty field!") and return  
-    else  
-      @parameter = params[:search].downcase  
-      @results = User.all.where("lower(name) LIKE :search", search: @parameter)  
-    end  
-  end
+  
   
     private
   

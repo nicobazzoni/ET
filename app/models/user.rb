@@ -40,13 +40,8 @@ class User < ApplicationRecord
       
 
       def self.search(search)
-    
-        if search
-          User.where('name LIKE :query', query: "%#{search}%")
-          
-        else
-        @users = User.all
-        end
+        where("name LIKE ?", "%#{search}%") 
+       
       end
 
      
